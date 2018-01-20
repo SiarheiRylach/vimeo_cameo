@@ -1,0 +1,35 @@
+{
+  "name": "vimeo.com_tests",
+  "version": "1.0.0",
+  "description": "testing framework and tests for vimeo.com",
+  "main": "protractor.config.js",
+  "scripts": {
+    "postinstall": "webdriver-manager update --versions.chrome 2.33",
+    "update": "webdriver-manager update --versions.chrome 2.33",
+    "e2e": "node_modules/.bin/protractor protractor.config.js",
+    "report": "gulp report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiarheiRylach/vimeo_cameo.git"
+  },
+  "keywords": [
+    "vimeo"
+  ],
+  "author": "Siarhei Rylach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SiarheiRylach/vimeo_cameo/issues"
+  },
+  "homepage": "https://github.com/SiarheiRylach/vimeo_cameo#readme",
+  "dependencies": {
+    "chai": "4.1.2",
+    "chai-as-promised": "7.1.1",
+    "cucumber": "3.1.0",
+    "gulp": "3.9.1",
+    "protractor": "5.*",
+    "protractor-cucumber-framework": "4.1.1",
+    "pug": "^2.0.0-rc.4",
+    "utils_for_tests": "https://github.com/SiarheiRylach/utils_for_tests.git"
+  }
+}
