@@ -1,5 +1,5 @@
 {
-  "name": "vimeo.com_tests",
+  "name": "vimeo_cameo",
   "version": "1.0.0",
   "description": "testing framework and tests for vimeo.com",
   "main": "protractor.config.js",

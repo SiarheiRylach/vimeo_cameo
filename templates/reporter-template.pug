@@ -1,0 +1,45 @@
+-let counterFeatureId = 1;
+-let counterScenarioId = 1;
+doctype html
+html(lang="en")
+    head
+        title reporter
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        script(type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    body
+         .container
+             span(class="label label-success") Passed: #{features.reduce((sum, feature) => sum + feature.passed_tst, 0)}
+             span(class="label label-danger") Failed: #{features.reduce((sum, feature) => sum + feature.failed_tst, 0)}
+             each feature in features
+                 div.panel-group(id="suite-accordion" + counterFeatureId)
+                     div.panel
+                         - let featureRes = (feature.result ? "panel-heading bg-success" : "panel-heading bg-danger")
+                         div(class=featureRes)
+                             h4.panel-title
+                                a(data-toggle="collapse" data-parent="suite-accordion" + counterFeatureId href="#suite-collapse" + counterFeatureId) #{feature.name}
+                         div(class="panel-collapse collapse" id="suite-collapse" + counterFeatureId)
+                             div.panel-body
+                                 each scenario in feature.scenarios
+                                     div.panel-group(id = "spec-accordion" + counterScenarioId)
+                                        div.panel
+                                            - let scenarioRes = (scenario.result ? "panel-heading bg-success" : "panel-heading bg-danger")
+                                            div(class=scenarioRes)
+                                                h4.panel-title
+                                                    a(data-toggle="collapse" data-parent="#spec-accordion" + counterScenarioId href="#collapse" + counterScenarioId) #{scenario.name}
+                                            div(class="panel-collapse collapse" id="collapse" + counterScenarioId)
+                                                div.panel-body
+                                                    if scenario.result
+                                                        p Passed
+                                                    else
+                                                        p Failed
+                                                        div.panel-group(id="messages-accordion" + counterScenarioId)
+                                                            div.panel
+                                                                div(class="panel-heading bg-danger")
+                                                                    h4.panel-title
+                                                                        a(data-toggle="collapse" data-parent="messages-accordion" + counterScenarioId href="#messages-collapse" + counterScenarioId) Messages
+                                                                div(id="messages-collapse" + counterScenarioId class="panel-collapse collapse")
+                                                                    div.panel-body
+                                                                        p #{scenario.error_message}
+                                            - counterScenarioId++;
+                 - counterFeatureId++;

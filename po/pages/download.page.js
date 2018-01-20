@@ -1,7 +1,5 @@
 'use strict';
 
-const MasterPage = require('./master/master.page');
-
 class DownloadPage{
     constructor() {
         this.url = 'https://itunes.apple.com/us/app/cameo-video-editor-movie-maker/id988821661';
