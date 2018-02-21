@@ -17,6 +17,13 @@ exports.config = {
     specs: [
         './features/*.feature'
     ],
+
+    suites: {
+        homepage: './features/home.page.feature',
+        smoke: ['./features/home.page.feature',
+            './features/user_account.feature']
+    },
+
     onPrepare: function () {
         commonUtils.createDir('./output');
         global.EC = protractor.ExpectedConditions;

@@ -8,6 +8,7 @@ class Sign{
         this['Email'] = element(by.css('#signup_email'));
         this['Login Password'] = element(by.css('#login_password'));
         this['Sign By Email'] = element(by.css('.iris_btn--positive'));
+        this['Warning Notification'] = element(by.css('.iris_notification'));
 
         //for registration
         this['Name'] = element(by.css('#signup_name'));

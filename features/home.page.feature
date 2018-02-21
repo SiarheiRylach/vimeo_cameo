@@ -8,7 +8,7 @@ Feature: Main page
   @scroll-start-page
   Scenario Outline: Scrolling page and check visible elements on the screen
     When I scroll down "<toVisibility>" times
-    When I wait until element "<screen>" is visible
+    And I wait until element "<screen>" is visible
     Then Element "<screen>" should be visible on screen
     When I scroll down "<toInvisibility>" times
     Then Element "<screen>" should not be visible on screen

@@ -8,6 +8,8 @@
     "update": "webdriver-manager update --versions.chrome 2.33",
     "e2e": "node_modules/.bin/protractor protractor.config.js",
     "debug": "node_modules/.bin/protractor debug protractor.config.js",
+    "homepage-suite": "node_modules/.bin/protractor protractor.config.js --suite homepage",
+    "smoke-suite": "node_modules/.bin/protractor protractor.config.js --suite smoke",
     "report": "gulp report"
   },
   "repository": {
