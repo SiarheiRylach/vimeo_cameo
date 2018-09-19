@@ -19,13 +19,16 @@ gulp.task('report', function() {
 
             let res = feature.elements.forEach(scenario => {
                 let scenarioRes = {'name': scenario.name};
-                scenarioRes.result = scenario.steps.every(step => {
-                    if (step.result.status === 'failed') {
-                        scenarioRes.error_message = step.result.error_message;
-                        return false;
+                scenarioRes.result = true;
+                for(let i = 0; i < scenario.steps.length; ++i){
+                    if (scenario.steps[i].result.status === 'failed') {
+                        scenarioRes.error_message = scenario.steps[i].result.error_message;
+                        scenarioRes.result = false;
                     }
-                    return true;
-                });
+                    if (scenario.steps[i].keyword === 'After' && scenario.steps[i].embeddings){
+                        scenarioRes.screenshotPath = scenario.steps[i].embeddings[0].data;
+                    }
+                }
                 scenarioRes.result ? passed_tst++ : failed_tst++;
                 scenarios.push(scenarioRes);
             });

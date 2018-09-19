@@ -41,5 +41,6 @@ html(lang="en")
                                                                 div(id="messages-collapse" + counterScenarioId class="panel-collapse collapse")
                                                                     div.panel-body
                                                                         p #{scenario.error_message}
+                                                                a(href=scenario.screenshotPath target="_blank") Screenshot
                                             - counterScenarioId++;
                  - counterFeatureId++;

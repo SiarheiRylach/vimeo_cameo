@@ -5,3 +5,5 @@ npm-debug.log
 debug.log
 .DS_Store
 report.html
+screenshots/
+run_Log_*

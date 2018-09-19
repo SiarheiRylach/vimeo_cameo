@@ -2,7 +2,7 @@ const log4js = require('log4js');
 
 log4js.configure({
     appenders: {
-        combined: { type: 'file', filename: `run_Log_${new Date().toUTCString()}.log` },
+        combined: { type: 'file', filename: `run_Log_${new Date().toLocaleString("en").replace(/[/:\s,]/g, '_')}.log` },
         console: { type: 'console'}
     },
     categories: { default: { appenders: ['combined', 'console'], level: 'debug' } }
