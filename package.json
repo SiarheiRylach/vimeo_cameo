@@ -30,6 +30,7 @@
     "chai-as-promised": "7.1.1",
     "cucumber": "3.1.0",
     "gulp": "3.9.1",
+    "log4js": "2.5.3",
     "protractor": "5.*",
     "protractor-cucumber-framework": "4.1.1",
     "pug": "^2.0.0-rc.4",
